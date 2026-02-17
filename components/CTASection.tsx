@@ -19,25 +19,63 @@ export default function CTASection() {
   const [recibirInfo, setRecibirInfo] = useState(false);
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setSending(true);
-    // Simular envío
-    setTimeout(() => {
-      setSending(false);
-      setSent(true);
-      setFormData({ nombre: '', telefono: '', email: '', comentarios: '' });
-    }, 2000);
-  };
+  const [error, setError] = useState('');
 
   const handleInputChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
+    if (error) setError(''); // Limpia error al escribir
   };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    if (!aceptaPoliticas) {
+      setError('Debes aceptar las políticas de privacidad');
+      return;
+    }
+
+    setSending(true);
+    setError('');
+
+    // Envío AJAX a Formspree
+    const formDataToSend = new FormData();
+    formDataToSend.append('nombre', formData.nombre);
+    formDataToSend.append('telefono', formData.telefono);
+    formDataToSend.append('email', formData.email);
+    formDataToSend.append('comentarios', formData.comentarios);
+    formDataToSend.append('recibir_info', recibirInfo ? 'Sí' : 'No');
+    formDataToSend.append('_subject', 'Nuevo contacto desde la web');
+
+    try {
+      const response = await fetch('https://formspree.io/f/mdalzvld', {
+        method: 'POST',
+        body: formDataToSend,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        setSent(true);
+        // Reset form
+        setFormData({ nombre: '', telefono: '', email: '', comentarios: '' });
+        setAceptaPoliticas(false);
+        setRecibirInfo(false);
+      } else {
+        throw new Error('Error en el servidor');
+      }
+    } catch (err) {
+      setError('Error al enviar. Inténtalo de nuevo.');
+      console.error('Error:', err);
+    } finally {
+      setSending(false);
+    }
+  };
+
+  // Pantalla de éxito (tu diseño original)
   if (sent) {
     return (
       <section id="contacto" className="py-32 bg-gradient-to-r from-[#006760] to-[#044559]/80">
@@ -128,6 +166,13 @@ export default function CTASection() {
           >
             <form onSubmit={handleSubmit} className="space-y-6 bg-white/10 backdrop-blur-xl rounded-3xl p-8 lg:p-10 border border-white/20">
               
+              {/* Mensaje de error */}
+              {error && (
+                <div className="p-4 bg-red-500/20 border border-red-500/50 rounded-2xl text-red-100 text-sm mb-4">
+                  {error}
+                </div>
+              )}
+
               {/* Nombre */}
               <div className="space-y-2">
                 <Label className="text-white font-semibold text-lg">Nombre Completo</Label>
