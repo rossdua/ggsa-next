@@ -4,7 +4,11 @@ import { Button } from "@/components/ui/button";
 import { MapPin, Phone, Mail, Send } from "lucide-react";
 import { useState, useEffect } from 'react';
 
-export default function UbicacionSection() {
+interface UbicacionSectionProps {
+  id?: string;
+}
+
+export default function UbicacionSection({ id }: UbicacionSectionProps) {
   const [copied, setCopied] = useState(false);
 
   const handleCopyAddress = () => {
@@ -25,7 +29,7 @@ export default function UbicacionSection() {
   }, []);
 
   return (
-    <section id="ubicacion" className="py-32 bg-white/95 backdrop-blur-sm">
+    <section id={id} className="py-32 bg-white/95 backdrop-blur-sm">
       <div className="container mx-auto px-6 max-w-6xl">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           

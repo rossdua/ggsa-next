@@ -50,7 +50,11 @@ const servicios = [
   }
 ];
 
-export default function ServicesSection() {
+interface ServicesSectionProps {
+  id?: string;
+}
+
+export default function ServicesSection({ id }: ServicesSectionProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % servicios.length);
@@ -63,7 +67,7 @@ export default function ServicesSection() {
   };
 
   return (
-    <section id="servicios" className="w-full py-20 px-6 bg-white/95 backdrop-blur-sm">
+    <section id={id} className="w-full py-20 px-6 bg-white/95 backdrop-blur-sm">
       <div className="container mx-auto max-w-7xl">
         
         {/* Título */}

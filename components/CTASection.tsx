@@ -8,7 +8,11 @@ import { Label } from "@/components/ui/label";
 import { Mail, Phone, MapPin, Send, CheckCircle } from "lucide-react";
 import { useState } from 'react';
 
-export default function CTASection() {
+interface CTASectionProps {
+  id?: string;
+}
+
+export default function CTASection({ id }: CTASectionProps) {
   const [formData, setFormData] = useState({
     nombre: '',
     telefono: '',
@@ -78,7 +82,7 @@ export default function CTASection() {
   // Pantalla de éxito (tu diseño original)
   if (sent) {
     return (
-      <section id="contacto" className="py-32 bg-gradient-to-r from-[#006760] to-[#044559]/80">
+      <section id={id} className="py-32 bg-gradient-to-r from-[#006760] to-[#044559]/80">
         <div className="container mx-auto px-6 max-w-4xl text-center">
           <motion.div 
             initial={{ opacity: 0, scale: 0.8 }}

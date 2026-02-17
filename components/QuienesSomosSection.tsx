@@ -3,9 +3,13 @@ import { motion } from 'framer-motion';
 import { Button } from "@/components/ui/button";
 import Link from 'next/link';
 
-export default function QuienesSomosSection() {
+interface QuienesSomosSectionProps {
+  id?: string;
+}
+
+export default function QuienesSomosSection({ id }: QuienesSomosSectionProps) {
   return (
-    <section id="quienes-somos" className="w-full py-20 px-6 bg-[#006760]/95 backdrop-blur-sm">
+    <section id={id} className="w-full py-20 px-6 bg-[#006760]/95 backdrop-blur-sm">
       <div className="container mx-auto max-w-7xl text-white">
         
         {/* Título principal */}

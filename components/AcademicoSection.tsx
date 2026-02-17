@@ -5,9 +5,13 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { GraduationCap, Users, Monitor, Users2 } from "lucide-react";
 
-export default function AcademicoSection() {
+interface AcademicoSectionProps {
+  id?: string;
+}
+
+export default function AcademicoSection({ id }: AcademicoSectionProps) {
   return (
-    <section id="academico" className="w-full py-20 px-6 bg-white/95 backdrop-blur-sm">
+    <section id={id} className="w-full py-20 px-6 bg-white/95 backdrop-blur-sm">
       <div className="container mx-auto max-w-7xl">
         
         {/* Header diferente */}

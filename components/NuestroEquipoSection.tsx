@@ -5,7 +5,11 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Instagram, Mail, Phone } from "lucide-react";
 
-export default function NuestroEquipoSection() {
+interface NuestroEquipoSectionProps {
+  id?: string;
+}
+
+export default function NuestroEquipoSection({ id }: NuestroEquipoSectionProps) {
   const equipo = [
     { 
       nombre: "Henry Gómez", 
@@ -38,7 +42,7 @@ export default function NuestroEquipoSection() {
   ];
 
   return (
-    <section id="nuestro-equipo" className="w-full py-20 px-6 bg-[#006760]/95 backdrop-blur-sm">
+    <section id={id} className="w-full py-20 px-6 bg-[#006760]/95 backdrop-blur-sm">
       <div className="container mx-auto max-w-7xl text-white">
         
         {/* Título */}

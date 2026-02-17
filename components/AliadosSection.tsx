@@ -4,9 +4,13 @@ import { Button } from "@/components/ui/button";
 import Link from 'next/link';
 import Image from 'next/image';
 
-export default function AliadosSection() {
+interface AliadosSectionProps {
+  id?: string;
+}
+
+export default function AliadosSection({ id }: AliadosSectionProps) {
   return (
-    <section id="aliados" className="w-full py-20 px-6 bg-[#006760]/95 backdrop-blur-sm">
+    <section id={id} className="w-full py-20 px-6 bg-[#006760]/95 backdrop-blur-sm">
       <div className="container mx-auto max-w-7xl text-white">
         
         {/* Título */}
