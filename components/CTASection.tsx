@@ -6,14 +6,21 @@ import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import { Mail, Phone, MapPin, Send, CheckCircle } from "lucide-react";
-import { useState } from 'react';
+import { useState, ChangeEvent, ReactEventHandler } from 'react';
+
+type FormData = {
+  nombre: string;
+  telefono: string;
+  email: string;
+  comentarios: string;
+};
 
 interface CTASectionProps {
   id?: string;
 }
 
 export default function CTASection({ id }: CTASectionProps) {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     nombre: '',
     telefono: '',
     email: '',
@@ -25,15 +32,15 @@ export default function CTASection({ id }: CTASectionProps) {
   const [sent, setSent] = useState(false);
   const [error, setError] = useState('');
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
-    if (error) setError(''); // Limpia error al escribir
+    if (error) setError('');
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     
     if (!aceptaPoliticas) {
@@ -44,7 +51,6 @@ export default function CTASection({ id }: CTASectionProps) {
     setSending(true);
     setError('');
 
-    // Envío AJAX a Formspree
     const formDataToSend = new FormData();
     formDataToSend.append('nombre', formData.nombre);
     formDataToSend.append('telefono', formData.telefono);
@@ -64,7 +70,6 @@ export default function CTASection({ id }: CTASectionProps) {
 
       if (response.ok) {
         setSent(true);
-        // Reset form
         setFormData({ nombre: '', telefono: '', email: '', comentarios: '' });
         setAceptaPoliticas(false);
         setRecibirInfo(false);
@@ -79,7 +84,6 @@ export default function CTASection({ id }: CTASectionProps) {
     }
   };
 
-  // Pantalla de éxito (tu diseño original)
   if (sent) {
     return (
       <section id={id} className="py-32 bg-gradient-to-r from-[#006760] to-[#044559]/80">
@@ -105,7 +109,7 @@ export default function CTASection({ id }: CTASectionProps) {
   }
 
   return (
-    <section id="contacto" className="py-32 bg-gradient-to-r from-[#006760] to-[#044559]/80">
+    <section id={id || "contacto"} className="py-32 bg-gradient-to-r from-[#006760] to-[#044559]/80">
       <div className="container mx-auto px-6 max-w-6xl">
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           
@@ -170,7 +174,6 @@ export default function CTASection({ id }: CTASectionProps) {
           >
             <form onSubmit={handleSubmit} className="space-y-6 bg-white/10 backdrop-blur-xl rounded-3xl p-8 lg:p-10 border border-white/20">
               
-              {/* Mensaje de error */}
               {error && (
                 <div className="p-4 bg-red-500/20 border border-red-500/50 rounded-2xl text-red-100 text-sm mb-4">
                   {error}
@@ -229,13 +232,13 @@ export default function CTASection({ id }: CTASectionProps) {
                 />
               </div>
 
-              {/* Checkboxes */}
+              {/* Checkboxes ✅ CORREGIDOS */}
               <div className="space-y-4 pt-4 border-t border-white/20">
                 <div className="flex items-start space-x-3">
                   <Checkbox 
                     id="politicas"
                     checked={aceptaPoliticas}
-                    onCheckedChange={setAceptaPoliticas}
+                    onCheckedChange={(checked) => setAceptaPoliticas(!!checked)}
                     className="mt-1 border-white/60 data-[state=checked]:bg-white data-[state=checked]:border-white h-6 w-6"
                   />
                   <Label htmlFor="politicas" className="text-white/90 text-sm leading-relaxed cursor-pointer flex-1">
@@ -247,7 +250,7 @@ export default function CTASection({ id }: CTASectionProps) {
                   <Checkbox 
                     id="info"
                     checked={recibirInfo}
-                    onCheckedChange={setRecibirInfo}
+                    onCheckedChange={(checked) => setRecibirInfo(!!checked)}
                     className="mt-1 border-white/60 data-[state=checked]:bg-white data-[state=checked]:border-white h-6 w-6"
                   />
                   <Label htmlFor="info" className="text-white/90 text-sm leading-relaxed cursor-pointer flex-1">
