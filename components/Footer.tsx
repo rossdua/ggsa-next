@@ -2,14 +2,6 @@
 import { Mail, Instagram, Linkedin, MapPin, Phone, Copyright } from "lucide-react";
 
 export default function Footer() {
-  // FUNCIÓN INTELIGENTE: Móvil → App | Desktop → Web
-  const getInstagramUrl = () => {
-    const isMobile = /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-    return isMobile 
-      ? `instagram://user?username=ggsasociados`    // Móvil: Abre app Instagram
-      : `https://www.instagram.com/ggsasociados/`;  // Desktop: Abre web Instagram
-  };
-
   return (
     <footer className="py-16 border-t border-[#044559]/20 bg-gradient-to-t from-[#044559] to-[#044559]/90">
       <div className="container mx-auto px-6 max-w-6xl">
@@ -87,7 +79,7 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Columna 3 - Solo ICONOS Social Media INTELIGENTE */}
+          {/* Columna 3 - Solo ICONOS Social Media */}
           <div className="space-y-6">
             <h4 className="text-xl font-black text-white mb-6">Síguenos</h4>
             <div className="flex gap-4 pt-2">
@@ -99,9 +91,8 @@ export default function Footer() {
                 <Mail className="w-6 h-6 text-white group-hover:scale-110 transition-transform" />
               </a>
               
-              {/*  INSTAGRAM: MÓVIL=APP | DESKTOP=WEB */}
               <a 
-                href={getInstagramUrl()}
+                href="https://instagram.com/ggsasociados" 
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group p-4 bg-gradient-to-r from-pink-500 to-purple-500/80 backdrop-blur-sm rounded-2xl border border-white/20 hover:shadow-2xl hover:-translate-y-1 hover:rotate-3 hover:from-pink-400 hover:to-purple-400 transition-all duration-300 w-14 h-14 flex items-center justify-center shadow-lg"
@@ -129,7 +120,7 @@ export default function Footer() {
         {/* Copyright MODIFICADO */}
         <div className="text-center">
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-8 py-4 rounded-2xl border border-white/20">
-            {/* <Copyright className="w-4 h-4 text-white/70" /> */}
+            <Copyright className="w-4 h-4 text-white/70" />
             <p className="text-white/80 text-sm font-medium">
               © 2026 GGSA Asesores Contables. Todos los derechos reservados. Design by Rosangela B. 
               <br />
