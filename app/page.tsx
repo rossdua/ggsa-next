@@ -15,7 +15,7 @@ import Footer from '@/components/Footer';                     // ← Inglés
 
 export default function LandingPage() {
   return (
-    <>
+    <main id="top">
       <Navbar />
       <HeroSection />
       <QuienesSomosSection id="quienes-somos" />
@@ -28,6 +28,6 @@ export default function LandingPage() {
       <UbicacionSection id="ubicacion" />
       <CTASection id="contacto" />
       <Footer />
-    </>
+    </main>
   );
 }

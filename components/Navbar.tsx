@@ -31,6 +31,23 @@ export default function Navbar() {
 
   const esScrolled = scrollY > 20;
 
+  //  FUNCIÓN SCROLL AL TOP (LOGO)
+  const scrollToTop = (e: React.MouseEvent) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  // FUNCIÓN SCROLL A SECCIÓN
+  const scrollToSection = (href: string, e: React.MouseEvent) => {
+    e.preventDefault();
+    const element = document.querySelector(href);
+    element?.scrollIntoView({ 
+      behavior: 'smooth',
+      block: 'start'
+    });
+    setAbierto(false); // Cierra menú móvil
+  };
+
   return (
     <nav className={`
       fixed top-0 left-0 right-0 z-50 w-full h-16
@@ -41,8 +58,12 @@ export default function Navbar() {
       }
     `}>
       <div className="container mx-auto h-full px-6 flex items-center justify-between">
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-3">
+        {/*  LOGO CON SCROLL AL TOP */}
+        <Link 
+          href="/" 
+          onClick={scrollToTop}
+          className="flex items-center gap-3"
+        >
           <div className="relative w-24 h-24">
             <Image
               src="/ggsa2f.png"
@@ -52,12 +73,13 @@ export default function Navbar() {
           </div>
         </Link>
 
-        {/* Enlaces desktop */}
+        {/*  ENLACES DESKTOP CON SCROLL SUAVE */}
         <div className="hidden lg:flex items-center gap-8">
           {enlaces.map((enlace) => (
             <Link
               key={enlace.nombre}
               href={enlace.href}
+              onClick={(e) => scrollToSection(enlace.href, e)}
               className="flex items-center gap-2 text-base font-medium text-white/90 
                         hover:text-white hover:bg-white/20 px-4 py-2 rounded-xl transition-all duration-300
                         backdrop-blur-sm border border-white/10 hover:border-white/30"
@@ -68,7 +90,7 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* Teléfono + Menú móvil SOLO MÓVIL */}
+        {/* Teléfono + Menú móvil */}
         <div className="flex items-center gap-4">
           {/* Teléfono desktop */}
           <div className="hidden md:flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-xl border border-white/30 hover:bg-white/30 transition-all cursor-pointer">
@@ -78,7 +100,7 @@ export default function Navbar() {
             </a>
           </div>
 
-          {/* Menú móvil - SOLO VISIBLE EN MÓVIL */}
+          {/* Menú móvil */}
           <Sheet open={abierto} onOpenChange={setAbierto}>
             <SheetTrigger asChild>
               <Button 
@@ -105,14 +127,15 @@ export default function Navbar() {
                 </a>
               </div>
               
+              {/*  ENLACES MÓVIL CON SCROLL SUAVE */}
               <div className="mt-8 flex flex-col gap-4 px-2">
                 {enlaces.map((enlace) => (
                   <Link
                     key={enlace.nombre}
                     href={enlace.href}
+                    onClick={(e) => scrollToSection(enlace.href, e)}
                     className="flex items-center gap-3 text-lg font-medium text-white/95 hover:text-white 
                               px-4 py-4 rounded-xl hover:bg-white/20 backdrop-blur-sm transition-all"
-                    onClick={() => setAbierto(false)}
                   >
                     <enlace.icon className="h-5 w-5 text-white/90 flex-shrink-0" />
                     {enlace.nombre}
