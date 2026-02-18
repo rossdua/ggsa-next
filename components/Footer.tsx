@@ -50,7 +50,7 @@ export default function Footer() {
               <Link href="#ubicacion" className="block text-white/80 hover:text-white hover:translate-x-2 transition-all duration-300 font-medium">
                 Ubicación
               </Link>
-              <Link href="/capacitaciones" className="block text-white/80 hover:text-white hover:translate-x-2 transition-all duration-300 font-medium">
+              <Link href="#academico" className="block text-white/80 hover:text-white hover:translate-x-2 transition-all duration-300 font-medium">
                 Capacitaciones
               </Link>
             </div>
