@@ -1,7 +1,6 @@
 'use client';
 import { Button } from "@/components/ui/button";
 import Image from 'next/image';
-import Link from 'next/link';
 import { motion } from 'framer-motion';
 
 export default function HeroSection() {
@@ -27,7 +26,7 @@ export default function HeroSection() {
             />
             {/* Anillo sutil */}
             <div className="absolute -inset-2 lg:-inset-4 bg-gradient-to-r from-[#044559]/5 to-transparent 
-                             rounded-2xl blur-xl opacity-40 animate-pulse" />
+                           rounded-2xl blur-xl opacity-40 animate-pulse" />
           </motion.div>
 
           {/* Contenido DEBAJO */}
@@ -57,7 +56,7 @@ export default function HeroSection() {
               Prestando servicios de consultoría empresarial y gerencial en materia contable, 
               <br className="hidden md:block" />
               <span className="font-semibold bg-gradient-to-r from-[#044559] to-[#044559]/70 
-                               bg-clip-text text-transparent"> financiera y de entrenamiento.</span>
+                             bg-clip-text text-transparent"> financiera y de entrenamiento.</span>
             </motion.p>
 
             <motion.div
@@ -69,20 +68,26 @@ export default function HeroSection() {
               className="flex flex-col sm:flex-row gap-6 justify-center pt-4"
             >
               <Button 
-                asChild
                 size="lg" 
                 className="text-xl h-16 px-12 shadow-2xl bg-gradient-to-r from-[#044559] to-[#044559]/90 
-                           hover:from-[#044559]/90 hover:to-[#044559] text-white font-bold border-2 
-                           border-[#044559]/30 hover:border-[#044559]/50 hover:shadow-3xl 
-                           hover:shadow-[#044559]/25 backdrop-blur-sm rounded-3xl group w-full sm:w-auto"
+                          hover:from-[#044559]/90 hover:to-[#044559] text-white font-bold border-2 
+                          border-[#044559]/30 hover:border-[#044559]/50 hover:shadow-3xl 
+                          hover:shadow-[#044559]/25 backdrop-blur-sm rounded-3xl group w-full sm:w-auto"
+                onClick={() => {
+                  const element = document.querySelector('#contacto');
+                  element?.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                  });
+                }}
               >
-                <Link href="#contacto" className="flex items-center gap-3 justify-center">
+                <span className="flex items-center gap-3 justify-center">
                   ¡Empecemos!
                   <svg className="w-6 h-6 group-hover:translate-x-2 transition-transform duration-300" 
                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
-                </Link>
+                </span>
               </Button>
             </motion.div>
           </motion.div>

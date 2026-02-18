@@ -1,7 +1,6 @@
 'use client';
 import { motion } from 'framer-motion';
 import { Button } from "@/components/ui/button";
-import Link from 'next/link';
 import Image from 'next/image';
 import { Instagram, Mail, Phone } from "lucide-react";
 
@@ -109,8 +108,8 @@ export default function NuestroEquipoSection({ id }: NuestroEquipoSectionProps) 
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="group/insta inline-flex items-center gap-2 bg-white/20 hover:bg-white/30 backdrop-blur-sm 
-                             border border-white/40 hover:border-white/60 rounded-2xl px-4 py-2 transition-all duration-300
-                             text-white/90 hover:text-white hover:shadow-lg hover:shadow-white/20"
+                                   border border-white/40 hover:border-white/60 rounded-2xl px-4 py-2 transition-all duration-300
+                                   text-white/90 hover:text-white hover:shadow-lg hover:shadow-white/20"
                 >
                   <Instagram className="w-5 h-5 group-hover/insta:scale-110 transition-transform" />
                   <span className="font-semibold text-sm tracking-tight">Sígueme</span>
@@ -120,7 +119,7 @@ export default function NuestroEquipoSection({ id }: NuestroEquipoSectionProps) 
           ))}
         </div>
 
-        {/* CTA */}
+        {/* CTA - Scroll sin URL */}
         <motion.div
           initial={{ opacity: 0, y: 50, scale: 0.9 }}
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
@@ -131,18 +130,24 @@ export default function NuestroEquipoSection({ id }: NuestroEquipoSectionProps) 
           className="flex flex-col sm:flex-row gap-6 justify-center pt-8"
         >
           <Button 
-            asChild
             size="lg" 
             className="text-xl h-16 px-12 shadow-2xl bg-white text-[#006760] font-black border-2 
-                       border-white hover:bg-white/90 hover:border-white hover:shadow-3xl 
-                       hover:shadow-[#006760]/25 backdrop-blur-sm rounded-3xl group tracking-tight w-full sm:w-auto"
+                          border-white hover:bg-white/90 hover:border-white hover:shadow-3xl 
+                          hover:shadow-[#006760]/25 backdrop-blur-sm rounded-3xl group tracking-tight w-full sm:w-auto"
+            onClick={() => {
+              const element = document.querySelector('#contacto');
+              element?.scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+              });
+            }}
           >
-            <Link href="#contacto" className="flex items-center gap-3 justify-center">
+            <span className="flex items-center gap-3 justify-center">
               Contáctanos Hoy
               <svg className="w-6 h-6 group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
-            </Link>
+            </span>
           </Button>
         </motion.div>
       </div>

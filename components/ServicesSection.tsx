@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { FileCheck, FileText, ShieldCheck, Gavel, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import Link from 'next/link';
 import { useState } from 'react';
 
 const servicios = [
@@ -218,10 +217,10 @@ export default function ServicesSection({ id }: ServicesSectionProps) {
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: i * 0.1 }}
                     className="group flex items-start gap-4 p-6 shadow-lg bg-white/80 hover:bg-white hover:shadow-xl hover:scale-[1.02] backdrop-blur-sm rounded-3xl 
-                              border border-white/50 hover:border-[#044559]/30 transition-all duration-500"
+                                    border border-white/50 hover:border-[#044559]/30 transition-all duration-500"
                   >
                     <div className="w-3 h-3 mt-4 bg-gradient-to-r from-[#044559] to-[#044559]/70 rounded-full flex-shrink-0 
-                                   group-hover:scale-125 group-hover:rotate-180 transition-all duration-500" />
+                                    group-hover:scale-125 group-hover:rotate-180 transition-all duration-500" />
                     <span className="text-gray-900 font-semibold leading-relaxed text-lg tracking-tight">{item}</span>
                   </motion.div>
                 ))}
@@ -230,7 +229,7 @@ export default function ServicesSection({ id }: ServicesSectionProps) {
           </motion.div>
         </div>
 
-        {/* CTA */}
+        {/* CTA - Scroll sin URL */}
         <motion.div
           initial={{ opacity: 0, y: 50, scale: 0.9 }}
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
@@ -241,19 +240,25 @@ export default function ServicesSection({ id }: ServicesSectionProps) {
           className="flex flex-col sm:flex-row gap-6 justify-center pt-8"
         >
           <Button 
-            asChild
             size="lg" 
             className="text-xl h-16 px-12 shadow-2xl bg-gradient-to-r from-[#044559] to-[#044559]/90 
-                       hover:from-[#044559]/90 hover:to-[#044559] text-white font-black border-2 
-                       border-[#044559]/30 hover:border-[#044559]/50 hover:shadow-3xl 
-                       hover:shadow-[#044559]/25 backdrop-blur-sm rounded-3xl group w-full sm:w-auto tracking-tight"
+                          hover:from-[#044559]/90 hover:to-[#044559] text-white font-black border-2 
+                          border-[#044559]/30 hover:border-[#044559]/50 hover:shadow-3xl 
+                          hover:shadow-[#044559]/25 backdrop-blur-sm rounded-3xl group w-full sm:w-auto tracking-tight"
+            onClick={() => {
+              const element = document.querySelector('#contacto');
+              element?.scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+              });
+            }}
           >
-            <Link href="#contacto" className="flex items-center gap-3 justify-center">
+            <span className="flex items-center gap-3 justify-center">
               Comienza Hoy
               <svg className="w-6 h-6 group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
-            </Link>
+            </span>
           </Button>
         </motion.div>
       </div>

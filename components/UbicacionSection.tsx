@@ -32,7 +32,7 @@ export default function UbicacionSection({ id }: UbicacionSectionProps) {
     <section id={id} className="py-32 bg-white/95 backdrop-blur-sm">
       <div className="container mx-auto px-6 max-w-6xl">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          
+         
           {/* Información de Ubicación */}
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
@@ -144,7 +144,7 @@ export default function UbicacionSection({ id }: UbicacionSectionProps) {
           </motion.div>
         </div>
 
-        {/* CTA */}
+        {/* CTA - Scroll sin URL */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -153,17 +153,23 @@ export default function UbicacionSection({ id }: UbicacionSectionProps) {
           className="text-center mt-24"
         >
           <Button 
-            asChild
             size="lg"
             className="text-xl h-16 px-16 shadow-2xl bg-gradient-to-r from-[#044559] to-[#044559]/90 
-                      hover:from-[#044559]/90 hover:to-[#044559] text-white font-black border-2 
-                      border-[#044559]/30 hover:border-[#044559]/50 hover:shadow-3xl 
-                      hover:shadow-[#044559]/25 backdrop-blur-sm rounded-3xl group tracking-tight"
+                          hover:from-[#044559]/90 hover:to-[#044559] text-white font-black border-2 
+                          border-[#044559]/30 hover:border-[#044559]/50 hover:shadow-3xl 
+                          hover:shadow-[#044559]/25 backdrop-blur-sm rounded-3xl group tracking-tight"
+            onClick={() => {
+              const element = document.querySelector('#contacto');
+              element?.scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+              });
+            }}
           >
-            <a href="#contacto" className="flex items-center gap-3">
+            <span className="flex items-center gap-3">
               Contactar Ahora
-              <Send className="w-6 h-6 ml-2 group-hover:translate-x-1 transition-transform" />
-            </a>
+              <Send className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
+            </span>
           </Button>
         </motion.div>
       </div>

@@ -1,7 +1,6 @@
 'use client';
 import { motion } from 'framer-motion';
 import { Button } from "@/components/ui/button";
-import Link from 'next/link';
 
 interface QuienesSomosSectionProps {
   id?: string;
@@ -83,7 +82,7 @@ export default function QuienesSomosSection({ id }: QuienesSomosSectionProps) {
                             border-2 border-white/40 hover:border-white/60 hover:shadow-3xl 
                             hover:shadow-[#006760]/25 transition-all duration-700 overflow-hidden backdrop-blur-sm">
               <h3 className="text-2xl lg:text-3xl font-black text-white mb-8 flex items-center gap-3 pb-6 
-                            border-b border-white/30 tracking-tight">
+                             border-b border-white/30 tracking-tight">
                 <div className="w-3 h-3 bg-white rounded-full group-hover:scale-125 transition-all"></div>
                 Objetivos
               </h3>
@@ -95,8 +94,8 @@ export default function QuienesSomosSection({ id }: QuienesSomosSectionProps) {
                   viewport={{ once: true }}
                   transition={{ duration: 0.6 }}
                   className="group/item flex items-start gap-4 p-6 shadow-lg bg-white/10 hover:bg-white/20 
-                                hover:shadow-xl hover:scale-[1.02] rounded-3xl 
-                                border border-white/30 hover:border-white/50 transition-all duration-500 backdrop-blur-sm"
+                                  hover:shadow-xl hover:scale-[1.02] rounded-3xl 
+                                  border border-white/30 hover:border-white/50 transition-all duration-500 backdrop-blur-sm"
                 >
                   <div className="w-8 h-8 flex-shrink-0 bg-gradient-to-r from-white to-white/70 
                                   rounded-xl flex items-center justify-center mt-1 shadow-lg">
@@ -114,8 +113,8 @@ export default function QuienesSomosSection({ id }: QuienesSomosSectionProps) {
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: 0.1 }}
                   className="group/item flex items-start gap-4 p-6 shadow-lg bg-white/10 hover:bg-white/20 
-                                hover:shadow-xl hover:scale-[1.02] rounded-3xl 
-                                border border-white/30 hover:border-white/50 transition-all duration-500 backdrop-blur-sm"
+                                  hover:shadow-xl hover:scale-[1.02] rounded-3xl 
+                                  border border-white/30 hover:border-white/50 transition-all duration-500 backdrop-blur-sm"
                 >
                   <div className="w-8 h-8 flex-shrink-0 bg-gradient-to-r from-white to-white/70 
                                   rounded-xl flex items-center justify-center mt-1 shadow-lg">
@@ -133,8 +132,8 @@ export default function QuienesSomosSection({ id }: QuienesSomosSectionProps) {
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: 0.2 }}
                   className="group/item flex items-start gap-4 p-6 shadow-lg bg-white/10 hover:bg-white/20 
-                                hover:shadow-xl hover:scale-[1.02] rounded-3xl 
-                                border border-white/30 hover:border-white/50 transition-all duration-500 backdrop-blur-sm"
+                                  hover:shadow-xl hover:scale-[1.02] rounded-3xl 
+                                  border border-white/30 hover:border-white/50 transition-all duration-500 backdrop-blur-sm"
                 >
                   <div className="w-8 h-8 flex-shrink-0 bg-gradient-to-r from-white to-white/70 
                                   rounded-xl flex items-center justify-center mt-1 shadow-lg">
@@ -175,20 +174,26 @@ export default function QuienesSomosSection({ id }: QuienesSomosSectionProps) {
             </div>
           </div>
 
-          {/* CTA */}
+          {/* CTA - Scroll sin URL */}
           <Button 
-            asChild
             size="lg" 
             className="text-xl h-16 px-12 shadow-2xl bg-white text-[#006760] font-black border-2 
-                       border-white hover:bg-white/90 hover:border-white hover:shadow-3xl 
-                       hover:shadow-[#006760]/25 backdrop-blur-sm rounded-3xl group tracking-tight flex-shrink-0"
+                          border-white hover:bg-white/90 hover:border-white hover:shadow-3xl 
+                          hover:shadow-[#006760]/25 backdrop-blur-sm rounded-3xl group tracking-tight flex-shrink-0"
+            onClick={() => {
+              const element = document.querySelector('#nuestro-equipo');
+              element?.scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+              });
+            }}
           >
-            <Link href="#nuestro-equipo" className="flex items-center gap-3 justify-center">
+            <span className="flex items-center gap-3 justify-center">
               Conoce Nuestro Equipo
               <svg className="w-6 h-6 group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
-            </Link>
+            </span>
           </Button>
         </motion.div>
       </div>

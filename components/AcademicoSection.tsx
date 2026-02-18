@@ -1,7 +1,6 @@
 'use client';
 import { motion } from 'framer-motion';
 import { Button } from "@/components/ui/button";
-import Link from 'next/link';
 import Image from 'next/image';
 import { GraduationCap, Users, Monitor, Users2 } from "lucide-react";
 
@@ -108,7 +107,7 @@ export default function AcademicoSection({ id }: AcademicoSectionProps) {
               </div>
               <p className="text-xl md:text-2xl text-gray-900 font-light leading-relaxed max-w-3xl mx-auto">
                 A través de <span className="font-black text-[#044559]">García Gómez Services & Asociados</span> desarrollamos 
-                <span className="font-black text-[#044559]">habilidades blandas</span> con enfoque 100% práctico y resultados medibles.
+                <span className="font-black text-[#044559]"> habilidades blandas</span> con enfoque 100% práctico y resultados medibles.
               </p>
             </div>
 
@@ -130,7 +129,7 @@ export default function AcademicoSection({ id }: AcademicoSectionProps) {
           </motion.div>
         </div>
 
-        {/* CTA diferente */}
+        {/* CTA diferente - Scroll sin URL */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -140,19 +139,25 @@ export default function AcademicoSection({ id }: AcademicoSectionProps) {
           className="text-center"
         >
           <Button 
-            asChild
             size="lg"
             className="text-xl h-16 px-16 shadow-2xl bg-gradient-to-r from-[#044559] to-[#044559]/90 
-                       hover:from-[#044559]/90 hover:to-[#044559] text-white font-black border-2 
-                       border-[#044559]/30 hover:border-[#044559]/50 hover:shadow-3xl 
-                       hover:shadow-[#044559]/25 backdrop-blur-sm rounded-3xl group tracking-tight"
+                          hover:from-[#044559]/90 hover:to-[#044559] text-white font-black border-2 
+                          border-[#044559]/30 hover:border-[#044559]/50 hover:shadow-3xl 
+                          hover:shadow-[#044559]/25 backdrop-blur-sm rounded-3xl group tracking-tight"
+            onClick={() => {
+              const element = document.querySelector('#contacto');
+              element?.scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+              });
+            }}
           >
-            <Link href="#contacto" className="flex items-center gap-3">
+            <span className="flex items-center gap-3">
               Comenzar Capacitación
               <svg className="w-6 h-6 group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
-            </Link>
+            </span>
           </Button>
         </motion.div>
       </div>

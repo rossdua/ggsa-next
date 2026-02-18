@@ -1,6 +1,5 @@
 'use client';
 import { Mail, Instagram, Linkedin, MapPin, Phone, Copyright } from "lucide-react";
-import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -8,7 +7,7 @@ export default function Footer() {
       <div className="container mx-auto px-6 max-w-6xl">
         {/* Grid principal */}
         <div className="grid md:grid-cols-3 gap-12 lg:gap-20 mb-16">
-          
+         
           {/* Columna 1 - Información empresa */}
           <div className="space-y-6 text-white">
             <div className="flex items-center gap-3 bg-white/10 px-6 py-3 rounded-2xl backdrop-blur-sm border border-white/20">
@@ -37,22 +36,46 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Columna 2 - Enlaces rápidos */}
+          {/* Columna 2 - Enlaces rápidos - Scroll suave */}
           <div className="space-y-6">
             <h4 className="text-xl font-black text-white mb-6">Enlaces Rápidos</h4>
             <div className="space-y-3 text-sm">
-              <Link href="#servicios" className="block text-white/80 hover:text-white hover:translate-x-2 transition-all duration-300 font-medium">
+              <button 
+                onClick={() => {
+                  const element = document.querySelector('#servicios');
+                  element?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }}
+                className="block w-full text-left text-white/80 hover:text-white hover:translate-x-2 transition-all duration-300 font-medium p-2 rounded hover:bg-white/10"
+              >
                 Servicios
-              </Link>
-              <Link href="#contacto" className="block text-white/80 hover:text-white hover:translate-x-2 transition-all duration-300 font-medium">
+              </button>
+              <button 
+                onClick={() => {
+                  const element = document.querySelector('#contacto');
+                  element?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }}
+                className="block w-full text-left text-white/80 hover:text-white hover:translate-x-2 transition-all duration-300 font-medium p-2 rounded hover:bg-white/10"
+              >
                 Contáctanos
-              </Link>
-              <Link href="#ubicacion" className="block text-white/80 hover:text-white hover:translate-x-2 transition-all duration-300 font-medium">
+              </button>
+              <button 
+                onClick={() => {
+                  const element = document.querySelector('#ubicacion');
+                  element?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }}
+                className="block w-full text-left text-white/80 hover:text-white hover:translate-x-2 transition-all duration-300 font-medium p-2 rounded hover:bg-white/10"
+              >
                 Ubicación
-              </Link>
-              <Link href="#academico" className="block text-white/80 hover:text-white hover:translate-x-2 transition-all duration-300 font-medium">
+              </button>
+              <button 
+                onClick={() => {
+                  const element = document.querySelector('#academico');
+                  element?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }}
+                className="block w-full text-left text-white/80 hover:text-white hover:translate-x-2 transition-all duration-300 font-medium p-2 rounded hover:bg-white/10"
+              >
                 Capacitaciones
-              </Link>
+              </button>
             </div>
           </div>
 
