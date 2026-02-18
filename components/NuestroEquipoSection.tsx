@@ -15,30 +15,38 @@ export default function NuestroEquipoSection({ id }: NuestroEquipoSectionProps) 
       cargo: "Auditor", 
       avatar: "/face1.jpg", 
       color: "from-[#044559]",
-      instagram: "https://instagram.com/hcgt71"
+      username: "hcgt71"
     },
     { 
       nombre: "Wladimir García", 
       cargo: "Impuestos, Legal, TAX", 
       avatar: "/face3.jpg", 
       color: "from-[#006760]",
-      instagram: "https://instagram.com/wlagc"
+      username: "wlagc"
     },
     { 
       nombre: "Jessica Chirinos", 
       cargo: "Auditora", 
       avatar: "/face2.jpg", 
       color: "from-emerald-500",
-      instagram: "https://instagram.com/jessich08"
+      username: "jessich08"
     },
     { 
       nombre: "Audines Milano", 
       cargo: "Consultor", 
       avatar: "/face4.jpg", 
       color: "from-purple-500",
-      instagram: "https://instagram.com/audinesmilano"
+      username: "audinesmilano"
     },
   ];
+
+  // FUNCIÓN INTELIGENTE: Móvil → App | Desktop → Web
+  const getInstagramUrl = (username: string) => {
+    const isMobile = /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    return isMobile 
+      ? `instagram://user?username=${username}`      // Móvil: Abre app Instagram
+      : `https://www.instagram.com/${username}/`;    // Desktop: Abre web Instagram
+  };
 
   return (
     <section id={id} className="w-full py-20 px-6 bg-[#006760]/95 backdrop-blur-sm">
@@ -84,14 +92,12 @@ export default function NuestroEquipoSection({ id }: NuestroEquipoSectionProps) 
                   fill
                   className="object-cover group-hover:scale-110 transition-transform duration-700 rounded-t-3xl"
                 />
-                <div className={`absolute top-6 left-6 w-6 h-6 ${miembro.color} to-transparent/20 rounded-2xl group-hover:scale-125 transition-all duration-500`} />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
 
-              {/* Contenido CON INSTAGRAM */}
+              {/* Contenido CON INSTAGRAM INTELIGENTE */}
               <div className="p-6 relative z-10 h-[180px] flex flex-col justify-between">
                 <div>
-                  <div className={`w-4 h-4 ${miembro.color} rounded-full mb-4 group-hover:scale-110 transition-transform duration-300`} />
                   <h3 className="text-xl font-black text-white tracking-tight leading-tight group-hover:text-white/90 transition-all mb-2">
                     {miembro.nombre}
                   </h3>
@@ -100,9 +106,9 @@ export default function NuestroEquipoSection({ id }: NuestroEquipoSectionProps) 
                   </p>
                 </div>
                 
-                {/* Instagram Button */}
+                {/* INSTAGRAM: MÓVIL=APP | DESKTOP=WEB */}
                 <motion.a
-                  href={miembro.instagram}
+                  href={getInstagramUrl(miembro.username)}
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.05 }}
