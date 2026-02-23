@@ -120,7 +120,7 @@ export default function Footer() {
         {/* Copyright MODIFICADO */}
         <div className="text-center">
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-8 py-4 rounded-2xl border border-white/20">
-            <Copyright className="w-4 h-4 text-white/70" />
+           {/*  <Copyright className="w-4 h-4 text-white/70" /> */}
             <p className="text-white/80 text-sm font-medium">
               © 2026 GGSA Asesores Contables. Todos los derechos reservados. Design by Rosangela B. 
               <br />
