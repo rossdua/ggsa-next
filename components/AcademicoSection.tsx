@@ -2,7 +2,7 @@
 import { motion } from 'framer-motion';
 import { Button } from "@/components/ui/button";
 import Image from 'next/image';
-import { GraduationCap, Users, Monitor, Users2 } from "lucide-react";
+import { GraduationCap, Users, Monitor, Users2, BarChart3, Target } from "lucide-react";
 
 interface AcademicoSectionProps {
   id?: string;
@@ -91,7 +91,7 @@ export default function AcademicoSection({ id }: AcademicoSectionProps) {
           </div>
         </div>
 
-        {/* Sección principal diferente */}
+        {/* SECCIÓN PRINCIPAL - TODO IGUAL */}
         <div className="max-w-4xl mx-auto mb-20">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
@@ -102,27 +102,33 @@ export default function AcademicoSection({ id }: AcademicoSectionProps) {
             className="bg-gradient-to-br from-white via-white/80 to-white/50 backdrop-blur-xl rounded-3xl p-12 lg:p-16 shadow-2xl border border-white/50 hover:shadow-3xl hover:shadow-[#044559]/20 transition-all duration-700"
           >
             <div className="text-center mb-12">
+              {/* LOGO GGSA CENTRADO - SIN CAMBIOS */}
               <div className="inline-flex items-center w-24 h-24 bg-gradient-to-r from-[#044559] to-[#044559]/90 rounded-3xl shadow-2xl mb-6 mx-auto border-4 border-white/30">
-                <span className="font-black text-2xl text-white drop-shadow-lg">GGSA</span>
+                <span className="font-black text-2xl text-white drop-shadow-lg w-full h-full flex items-center justify-center px-1">
+                  GGSA
+                </span>
               </div>
+              
               <p className="text-xl md:text-2xl text-gray-900 font-light leading-relaxed max-w-3xl mx-auto">
                 A través de <span className="font-black text-[#044559]">García Gómez Services & Asociados</span> desarrollamos 
                 <span className="font-black text-[#044559]"> habilidades blandas</span> con enfoque 100% práctico y resultados medibles.
               </p>
             </div>
 
-            {/* Stats horizontales */}
+            {/* ✅ STATS CON SÍMBOLOS CORREGIDOS */}
             <div className="grid md:grid-cols-3 gap-8 pt-12">
               <div className="text-center group">
                 <div className="text-3xl lg:text-4xl font-black bg-gradient-to-r from-[#044559] to-[#044559]/70 bg-clip-text text-transparent mb-2">100%</div>
                 <div className="text-gray-700 font-semibold text-lg">Personalizado</div>
               </div>
               <div className="text-center group">
-                <div className="text-3xl lg:text-4xl font-black bg-gradient-to-r from-[#044559] to-[#044559]/70 bg-clip-text text-transparent mb-2">📊</div>
+                {/* ✅ GRÁFICO DE BARRAS para Resultados Medibles */}
+                <BarChart3 className="w-12 h-12 lg:w-14 lg:h-14 mx-auto mb-2 text-[#044559] drop-shadow-lg group-hover:scale-110 transition-transform duration-300" />
                 <div className="text-gray-700 font-semibold text-lg">Resultados Medibles</div>
               </div>
               <div className="text-center group">
-                <div className="text-3xl lg:text-4xl font-black bg-gradient-to-r from-[#044559] to-[#044559]/70 bg-clip-text text-transparent mb-2">🎯</div>
+                {/* ✅ TARGET (DIANA) para Objetivos Alcanzados */}
+                <Target className="w-12 h-12 lg:w-14 lg:h-14 mx-auto mb-2 text-[#044559] drop-shadow-lg group-hover:scale-110 transition-transform duration-300" />
                 <div className="text-gray-700 font-semibold text-lg">Objetivos Alcanzados</div>
               </div>
             </div>
@@ -141,9 +147,9 @@ export default function AcademicoSection({ id }: AcademicoSectionProps) {
           <Button 
             size="lg"
             className="text-xl h-16 px-16 shadow-2xl bg-gradient-to-r from-[#044559] to-[#044559]/90 
-                          hover:from-[#044559]/90 hover:to-[#044559] text-white font-black border-2 
-                          border-[#044559]/30 hover:border-[#044559]/50 hover:shadow-3xl 
-                          hover:shadow-[#044559]/25 backdrop-blur-sm rounded-3xl group tracking-tight"
+                              hover:from-[#044559]/90 hover:to-[#044559] text-white font-black border-2 
+                              border-[#044559]/30 hover:border-[#044559]/50 hover:shadow-3xl 
+                              hover:shadow-[#044559]/25 backdrop-blur-sm rounded-3xl group tracking-tight"
             onClick={() => {
               const element = document.querySelector('#contacto');
               element?.scrollIntoView({ 
