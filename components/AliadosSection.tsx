@@ -43,7 +43,7 @@ export default function AliadosSection({ id }: AliadosSectionProps) {
                           p-12 lg:p-16 backdrop-blur-sm transition-all duration-700 overflow-hidden relative z-10"
           >
             {/* Logo esquina superior derecha */}
-            <div className="absolute top-8 right-8 w-20 h-20 bg-white/30 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-xl z-20">
+            <div className="absolute top-8 right-8 w-20 h-20 bg-white backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-xl z-20 border-2 border-white/50">
               <span className="font-black text-[#006760] text-xl">IPG</span>
             </div>
 
@@ -52,7 +52,7 @@ export default function AliadosSection({ id }: AliadosSectionProps) {
               {/* Texto */}
               <div className="space-y-6 lg:pr-8">
                 <div className="flex items-center gap-4">
-                  <div className="w-16 h-16 bg-white/30 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-xl flex-shrink-0">
+                <div className="w-16 h-16 bg-white backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-xl flex-shrink-0 border-2 border-white/50">
                     <span className="font-black text-[#006760] text-lg">IPG</span>
                   </div>
                   <h3 className="text-3xl lg:text-4xl font-black text-white tracking-tight">
