@@ -5,9 +5,8 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
-import { X, Mail, Phone, MapPin, Send, CheckCircle } from "lucide-react";
-import { useState, ChangeEvent, ReactEventHandler } from 'react';
-import Link from 'next/link';
+import { X, Mail, Phone, Send, CheckCircle } from "lucide-react";
+import { useState, ChangeEvent } from 'react';
 
 type FormData = {
   nombre: string;
@@ -32,7 +31,6 @@ export default function CTASection({ id }: CTASectionProps) {
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
   const [error, setError] = useState('');
-  // 🆕 DIALOGO POLITICAS
   const [showPoliticasDialog, setShowPoliticasDialog] = useState(false);
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -43,42 +41,44 @@ export default function CTASection({ id }: CTASectionProps) {
     if (error) setError('');
   };
 
+  // NUEVA FUNCIÓN - PROPIA API
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     
     if (!aceptaPoliticas) {
       setError('Debes aceptar las políticas de privacidad');
-      setShowPoliticasDialog(true); // 🆕 Abrir dialogo
+      setShowPoliticasDialog(true);
       return;
     }
 
     setSending(true);
     setError('');
 
-    const formDataToSend = new FormData();
-    formDataToSend.append('nombre', formData.nombre);
-    formDataToSend.append('telefono', formData.telefono);
-    formDataToSend.append('email', formData.email);
-    formDataToSend.append('comentarios', formData.comentarios);
-    formDataToSend.append('recibir_info', recibirInfo ? 'Sí' : 'No');
-    formDataToSend.append('_subject', 'Nuevo contacto desde la web');
-
     try {
-      const response = await fetch('https://formspree.io/f/mdalzvld', {
+      // CAMBIO: API propia 
+      const response = await fetch('/api/send-email', {
         method: 'POST',
-        body: formDataToSend,
-        headers: {
-          'Accept': 'application/json'
-        }
+        headers: { 
+          'Content-Type': 'application/json' 
+        },
+        body: JSON.stringify({
+          nombre: formData.nombre,
+          email: formData.email,
+          telefono: formData.telefono,
+          comentarios: formData.comentarios,
+          recibir_info: recibirInfo ? 'Sí' : 'No'
+        })
       });
 
-      if (response.ok) {
+      const result = await response.json();
+      
+      if (result.success) {
         setSent(true);
         setFormData({ nombre: '', telefono: '', email: '', comentarios: '' });
         setAceptaPoliticas(false);
         setRecibirInfo(false);
       } else {
-        throw new Error('Error en el servidor');
+        throw new Error(result.error || 'Error del servidor');
       }
     } catch (err) {
       setError('Error al enviar. Inténtalo de nuevo.');
@@ -88,7 +88,6 @@ export default function CTASection({ id }: CTASectionProps) {
     }
   };
 
-  // 🆕 CERRAR DIALOGO Y MARCAR CHECKBOX
   const handleAceptarPoliticas = () => {
     setAceptaPoliticas(true);
     setShowPoliticasDialog(false);
@@ -121,7 +120,7 @@ export default function CTASection({ id }: CTASectionProps) {
 
   return (
     <>
-      <section id={id || "contacto"} className="py-32 bg-gradient-to-r from-[#006760] to-[#044559]/80">
+      <section id={id} className="py-32 bg-gradient-to-r from-[#006760] to-[#044559]/80">
         <div className="container mx-auto px-6 max-w-6xl">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             
@@ -192,7 +191,7 @@ export default function CTASection({ id }: CTASectionProps) {
                   </div>
                 )}
 
-                {/* Campos del formulario - IGUALES */}
+                {/* Campos del formulario */}
                 <div className="space-y-2">
                   <Label className="text-white font-semibold text-lg">Nombre Completo</Label>
                   <Input
@@ -241,7 +240,7 @@ export default function CTASection({ id }: CTASectionProps) {
                   />
                 </div>
 
-                {/* 🆕 CHECKBOX CON DIALOGO */}
+                {/* Checkbox con diálogo */}
                 <div className="space-y-4 pt-4 border-t border-white/20">
                   <div className="flex items-start space-x-3">
                     <Checkbox 
@@ -251,7 +250,7 @@ export default function CTASection({ id }: CTASectionProps) {
                         if (!checked) {
                           setAceptaPoliticas(false);
                         } else {
-                          setShowPoliticasDialog(true); // 🆕 Abrir dialogo al marcar
+                          setShowPoliticasDialog(true);
                         }
                       }}
                       className="mt-1 border-white/60 data-[state=checked]:bg-white data-[state=checked]:border-white h-6 w-6"
@@ -308,7 +307,7 @@ export default function CTASection({ id }: CTASectionProps) {
         </div>
       </section>
 
-      {/* 🆕 DIALOGO POLITICAS DE PRIVACIDAD */}
+      {/* Diálogo Políticas */}
       {showPoliticasDialog && (
         <motion.div
           initial={{ opacity: 0 }}
@@ -324,7 +323,6 @@ export default function CTASection({ id }: CTASectionProps) {
             className="bg-gradient-to-br from-white to-gray-50 rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-[#044559]/20"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Header Dialogo */}
             <div className="sticky top-0 bg-white/90 backdrop-blur-sm rounded-t-3xl p-6 border-b border-[#044559]/10 z-10 flex items-center justify-between">
               <h3 className="text-2xl font-black text-[#044559]">Política de Privacidad</h3>
               <button
@@ -335,7 +333,6 @@ export default function CTASection({ id }: CTASectionProps) {
               </button>
             </div>
 
-            {/* Contenido Dialogo */}
             <div className="p-8 space-y-6 text-gray-800 max-h-[60vh] overflow-y-auto">
               <div className="space-y-4">
                 <p className="text-lg leading-relaxed">
@@ -353,7 +350,7 @@ export default function CTASection({ id }: CTASectionProps) {
                     </ul>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-lg text-[#006760] mb-3">🎯 Para:</h4>
+                    <h4 className="font-semibold text-lg text-[#006760] mb-3">👤 Para:</h4>
                     <ul className="space-y-2 text-sm">
                       <li>• Responder tu consulta</li>
                       <li>• Contactarte por teléfono/email</li>
@@ -373,12 +370,11 @@ export default function CTASection({ id }: CTASectionProps) {
                 </div>
 
                 <p className="text-sm text-gray-600 italic">
-                  <strong>Responsable:</strong> GGSA Asesores Contables - info@ggsa.com.ve
+                  <strong>Responsable:</strong> GGSA Asesores Contables - <a href="mailto:info@ggsa.com.ve" className="underline">info@ggsa.com.ve</a>
                 </p>
               </div>
             </div>
 
-            {/* Footer Dialogo */}
             <div className="sticky bottom-0 bg-white/90 backdrop-blur-sm rounded-b-3xl p-6 border-t border-[#044559]/10 flex gap-4 justify-end">
               <Button
                 variant="outline"
