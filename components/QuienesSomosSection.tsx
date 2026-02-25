@@ -57,7 +57,7 @@ export default function QuienesSomosSection({ id }: QuienesSomosSectionProps) {
                 <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 mb-8 sm:mb-12 pb-8 border-b border-white/20 relative">
                   <div className="relative group/logo mx-auto sm:mx-0">
                     <div className="w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-[#00d4aa] to-[#00b894] rounded-3xl flex items-center justify-center shadow-2xl ring-4 ring-white/20 group-hover/logo:ring-white/40 transition-all duration-700">
-                      <span className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#006760] drop-shadow-lg">GG</span>
+                      <span className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#006760] drop-shadow-lg">GGSA</span>
                     </div>
                     <div className="absolute -inset-2 bg-gradient-to-r from-[#00d4aa]/20 to-[#00b894]/20 rounded-3xl blur-xl opacity-0 group-hover/logo:opacity-100 transition-opacity duration-700 animate-pulse"></div>
                   </div>
