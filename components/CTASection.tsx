@@ -369,7 +369,7 @@ export default function CTASection({ id }: CTASectionProps) {
                 </div>
 
                 <p className="text-sm text-gray-600 italic">
-                  <strong>Responsable:</strong> GGSA Asesores Contables - <a href="mailto:info@ggsa.com.ve" className="underline">info@ggsa.com.ve</a>
+                  <strong>Responsable:</strong> GGSA Asesores Contables - <a href="mailto:ggsa@ggsa.com.ve" className="underline">ggsa@ggsa.com.ve</a>
                 </p>
               </div>
             </div>

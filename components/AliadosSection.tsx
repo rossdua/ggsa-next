@@ -43,9 +43,9 @@ export default function AliadosSection({ id }: AliadosSectionProps) {
                           p-12 lg:p-16 backdrop-blur-sm transition-all duration-700 overflow-hidden relative z-10"
           >
             {/* Logo esquina superior derecha */}
-            <div className="absolute top-8 right-8 w-20 h-20 bg-white backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-xl z-20 border-2 border-white/50">
+            {/* <div className="absolute top-8 right-8 w-20 h-20 bg-white backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-xl z-20 border-2 border-white/50">
               <span className="font-black text-[#006760] text-xl">IPG</span>
-            </div>
+            </div> */}
 
             <div className="grid lg:grid-cols-2 items-center gap-12 lg:gap-20 relative z-20">
               
