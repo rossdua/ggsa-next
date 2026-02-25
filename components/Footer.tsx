@@ -23,8 +23,8 @@ export default function Footer() {
             <div className="space-y-4 text-sm text-white/80">
               <div className="flex items-center gap-3 p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:bg-white/10 transition-all">
                 <Mail className="w-5 h-5 flex-shrink-0" />
-                <a href="mailto:info@ggsa.com.ve" className="hover:text-white transition-colors font-medium">
-                  info@ggsa.com.ve
+                <a href="mailto:ggsa@ggsa.com.ve" className="hover:text-white transition-colors font-medium">
+                  ggsa@ggsa.com.ve
                 </a>
               </div>
               <div className="flex items-center gap-3 p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:bg-white/10 transition-all">
@@ -84,7 +84,7 @@ export default function Footer() {
             <h4 className="text-xl font-black text-white mb-6">Síguenos</h4>
             <div className="flex gap-4 pt-2">
               <a 
-                href="mailto:info@ggsa.com.ve"
+                href="mailto:ggsa@ggsa.com.ve"
                 className="group p-4 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20 hover:bg-white/20 hover:shadow-xl hover:-translate-y-1 hover:rotate-3 transition-all duration-300 w-14 h-14 flex items-center justify-center"
                 aria-label="Email GGSA"
               >

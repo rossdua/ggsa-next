@@ -145,7 +145,7 @@ export default function CTASection({ id }: CTASectionProps) {
                   <div>
                     <h4 className="font-semibold text-white mb-1">Correos:</h4>
                     <div className="space-y-1 text-sm">
-                      <a href="mailto:info@ggsa.com.ve" className="block hover:text-white transition-colors">info@ggsa.com.ve</a>
+                      <a href="mailto:ggsa@ggsa.com.ve" className="block hover:text-white transition-colors">ggsa@ggsa.com.ve</a>
                       <a href="mailto:ggsasociados@gmail.com" className="block hover:text-white transition-colors">ggsasociados@gmail.com</a>
                       <a href="mailto:wgarcia@ggsa.com.ve" className="block hover:text-white transition-colors">wgarcia@ggsa.com.ve</a>
                       <a href="mailto:hgomez@ggsa.com.ve" className="block hover:text-white transition-colors">hgomez@ggsa.com.ve</a>
@@ -164,7 +164,6 @@ export default function CTASection({ id }: CTASectionProps) {
                       <a href="tel:+582863272699" className="block hover:text-white transition-colors">+58-286-3272699</a>
                       <a href="tel:+582869623488" className="block hover:text-white transition-colors">9623488 / 9625300</a>
                       <a href="tel:+584123302158" className="block hover:text-white transition-colors">+58-412-3302158</a>
-                      <a href="tel:+584122868102" className="block hover:text-white transition-colors">+58-412-2868102</a>
                     </div>
                     <h4 className="font-semibold text-white mb-2">Perú:</h4>
                     <div className="space-y-1 text-sm">

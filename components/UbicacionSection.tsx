@@ -87,11 +87,11 @@ export default function UbicacionSection({ id }: UbicacionSectionProps) {
                   </div>
                 </a>
                 
-                <a href="mailto:info@ggsa.com.ve" className="group flex items-center gap-3 p-4 bg-white/50 backdrop-blur-sm rounded-xl border border-[#044559]/20 hover:border-[#044559]/40 hover:shadow-xl transition-all">
+                <a href="mailto:ggsa@ggsa.com.ve" className="group flex items-center gap-3 p-4 bg-white/50 backdrop-blur-sm rounded-xl border border-[#044559]/20 hover:border-[#044559]/40 hover:shadow-xl transition-all">
                   <Mail className="w-5 h-5 text-[#044559] group-hover:scale-110 transition-transform" />
                   <div>
                     <div className="text-xs text-gray-500 font-medium">Escríbenos</div>
-                    <div className="font-bold text-[#044559]">info@ggsa.com.ve</div>
+                    <div className="font-bold text-[#044559]">ggsa@ggsa.com.ve</div>
                   </div>
                 </a>
               </div>
