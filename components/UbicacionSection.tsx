@@ -57,7 +57,7 @@ export default function UbicacionSection({ id }: UbicacionSectionProps) {
               </h4>
               
               <div className="relative">
-                <p className="text-gray-700 leading-relaxed mb-4 sm:mb-6 text-base sm:text-lg break-words line-height-tight">
+                <p className="text-gray-700 leading-relaxed mb-4 sm:mb-6 text-base sm:text-lg break-words line-height-tight pr-2 sm:pr-32 pb-10 sm:pb-6 pt-1 sm:pt-0">
                   <strong>Centro Comercial Cristal</strong><br/>
                   Edificio Principal, Mezanina 2<br/>
                   Oficina N° 309<br/>
@@ -70,7 +70,7 @@ export default function UbicacionSection({ id }: UbicacionSectionProps) {
                 <Button
                   onClick={handleCopyAddress}
                   size="sm"
-                  className="absolute top-0 right-0 bg-gradient-to-r from-[#044559] to-[#044559]/90 text-white text-xs sm:text-sm px-3 sm:px-4 h-8 sm:h-9 rounded-xl font-semibold shadow-lg hover:shadow-xl w-full sm:w-auto"
+                  className="absolute -top-1 -right-2 sm:top-0 sm:right-0 bg-gradient-to-r from-[#044559] to-[#044559]/90 text-white text-xs sm:text-sm px-3 sm:px-4 h-8 sm:h-9 rounded-xl font-semibold shadow-lg hover:shadow-xl w-16 sm:w-auto"
                 >
                   {copied ? '¡Copiado!' : 'Copiar'}
                 </Button>
@@ -154,9 +154,9 @@ export default function UbicacionSection({ id }: UbicacionSectionProps) {
           <Button 
             size="lg"
             className="text-lg sm:text-xl h-14 sm:h-16 px-8 sm:px-16 shadow-2xl bg-gradient-to-r from-[#044559] to-[#044559]/90 
-                             hover:from-[#044559]/90 hover:to-[#044559] text-white font-black border-2 
-                             border-[#044559]/30 hover:border-[#044559]/50 hover:shadow-3xl 
-                             hover:shadow-[#044559]/25 backdrop-blur-sm rounded-3xl group tracking-tight w-full sm:w-auto max-w-md mx-auto"
+                       hover:from-[#044559]/90 hover:to-[#044559] text-white font-black border-2 
+                       border-[#044559]/30 hover:border-[#044559]/50 hover:shadow-3xl 
+                       hover:shadow-[#044559]/25 backdrop-blur-sm rounded-3xl group tracking-tight w-full sm:w-auto max-w-md mx-auto"
             onClick={() => {
               const element = document.querySelector('#contacto');
               element?.scrollIntoView({ 

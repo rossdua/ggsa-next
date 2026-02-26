@@ -9,7 +9,7 @@ interface QuienesSomosSectionProps {
 export default function QuienesSomosSection({ id }: QuienesSomosSectionProps) {
   return (
     <section id={id} className="w-full py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-[#006760]/95 backdrop-blur-sm">
-      <div className="container mx-auto max-w-7xl px-4 text-white">
+      <div className="container mx-auto max-w-7xl px-0 sm:px-4"> {/* ← px-0 en mobile */}
         
         {/* Título principal - RESPONSIVE */}
         <motion.div 
@@ -17,7 +17,7 @@ export default function QuienesSomosSection({ id }: QuienesSomosSectionProps) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-12 sm:mb-16 lg:mb-20 max-w-3xl mx-auto"
+          className="text-center mb-12 sm:mb-16 lg:mb-20 max-w-3xl mx-auto px-4 sm:px-0"
         >
           <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black bg-gradient-to-r 
                          from-white via-gray-100 to-white bg-clip-text text-transparent 
@@ -32,9 +32,9 @@ export default function QuienesSomosSection({ id }: QuienesSomosSectionProps) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="w-full mb-12 sm:mb-16 lg:mb-20 px-4"
+          className="w-full mb-12 sm:mb-16 lg:mb-20 px-4 sm:px-0"
         >
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 w-full">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 w-full px-0 sm:px-4">
             
             {/* TARJETA PRINCIPAL */}
             <motion.div
@@ -42,7 +42,7 @@ export default function QuienesSomosSection({ id }: QuienesSomosSectionProps) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="md:col-span-2 group hover:scale-[1.02] transition-all duration-500 relative overflow-hidden w-full"
+              className="md:col-span-2 group hover:scale-[1.02] transition-all duration-500 relative overflow-hidden w-full px-4 sm:px-0"
             >
               <div className="relative bg-gradient-to-br from-white/5 via-white/2 to-transparent 
                              backdrop-blur-2xl rounded-3xl p-8 sm:p-12 lg:p-16 border border-white/20 
@@ -102,7 +102,7 @@ export default function QuienesSomosSection({ id }: QuienesSomosSectionProps) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="group hover:scale-[1.02] transition-all duration-500 w-full"
+              className="group hover:scale-[1.02] transition-all duration-500 w-full px-2 sm:px-0"
             >
               <div className="bg-gradient-to-br from-[#006760]/95 to-[#006760]/80 backdrop-blur-xl rounded-3xl p-6 sm:p-8 h-full 
                              border-2 border-white/20 hover:border-white/40 hover:shadow-3xl hover:shadow-[#006760]/40 
@@ -111,7 +111,7 @@ export default function QuienesSomosSection({ id }: QuienesSomosSectionProps) {
                   <div className="w-3 h-3 sm:w-4 sm:h-4 bg-white rounded-full group-hover:scale-125 transition-all flex-shrink-0"></div>
                   Misión
                 </h3>
-                <p className="text-base sm:text-lg text-white/95 leading-relaxed font-light">
+                <p className="text-base sm:text-lg text-white/95 leading-relaxed font-light px-2 sm:px-0">
                   Proveer servicios en materia contable, tributaria y de entrenamiento con altos estándares de calidad, 
                   con los cuales podamos contribuir a mejoras tangibles en nuestros clientes y relacionados, así como con nuestra comunidad profesional.
                 </p>
@@ -124,7 +124,7 @@ export default function QuienesSomosSection({ id }: QuienesSomosSectionProps) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="group hover:scale-[1.02] transition-all duration-500 w-full"
+              className="group hover:scale-[1.02] transition-all duration-500 w-full px-2 sm:px-0"
             >
               <div className="bg-gradient-to-br from-[#006760]/80 to-[#006760]/95 backdrop-blur-xl rounded-3xl p-6 sm:p-8 h-full 
                              border-2 border-white/20 hover:border-white/40 hover:shadow-3xl hover:shadow-[#006760]/40 
@@ -133,7 +133,7 @@ export default function QuienesSomosSection({ id }: QuienesSomosSectionProps) {
                   <div className="w-3 h-3 sm:w-4 sm:h-4 bg-white rounded-full group-hover:scale-125 transition-all flex-shrink-0"></div>
                   Visión
                 </h3>
-                <p className="text-base sm:text-lg text-white/95 leading-relaxed font-light">
+                <p className="text-base sm:text-lg text-white/95 leading-relaxed font-light px-2 sm:px-0">
                   Ser reconocidos como una Firma que provee soluciones confiables, en servicios contables, tributarios y de entrenamiento.
                 </p>
               </div>
@@ -147,11 +147,11 @@ export default function QuienesSomosSection({ id }: QuienesSomosSectionProps) {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="space-y-6 sm:space-y-8 mb-12 sm:mb-20 px-4"
+          className="space-y-6 sm:space-y-8 mb-12 sm:mb-20 px-4 sm:px-0"
         >
           <div className="group shadow-2xl bg-white/20 hover:bg-white/30 rounded-3xl p-6 sm:p-8 lg:p-10 
                           border-2 border-white/40 hover:border-white/60 hover:shadow-3xl 
-                          hover:shadow-[#006760]/25 transition-all duration-700 overflow-hidden backdrop-blur-sm w-full">
+                          hover:shadow-[#006760]/25 transition-all duration-700 overflow-hidden backdrop-blur-sm w-full px-4 sm:px-0">
             <h3 className="text-xl sm:text-2xl lg:text-3xl font-black text-white mb-6 sm:mb-8 flex items-center gap-3 pb-4 sm:pb-6 
                            border-b border-white/30 tracking-tight">
               <div className="w-3 h-3 bg-white rounded-full group-hover:scale-125 transition-all flex-shrink-0"></div>
@@ -166,7 +166,7 @@ export default function QuienesSomosSection({ id }: QuienesSomosSectionProps) {
                 transition={{ duration: 0.6 }}
                 className="group/item flex flex-col sm:flex-row items-start gap-4 p-4 sm:p-6 shadow-lg bg-white/10 hover:bg-white/20 
                                 hover:shadow-xl hover:scale-[1.02] rounded-3xl 
-                                border border-white/30 hover:border-white/50 transition-all duration-500 backdrop-blur-sm"
+                                border border-white/30 hover:border-white/50 transition-all duration-500 backdrop-blur-sm px-2 sm:px-0"
               >
                 <div className="w-8 h-8 flex-shrink-0 bg-gradient-to-r from-white to-white/70 
                                 rounded-xl flex items-center justify-center mt-1 shadow-lg">
@@ -174,7 +174,7 @@ export default function QuienesSomosSection({ id }: QuienesSomosSectionProps) {
                 </div>
                 <div className="w-full">
                   <div className="font-black text-white text-base sm:text-lg mb-1 tracking-tight">Liderazgo en el Mercado</div>
-                  <p className="text-white/90 leading-relaxed text-sm sm:text-base font-light">Ser reconocidos como la firma líder en servicios contables, tributarios, de asesoría, consultoría y entrenamiento.</p>
+                  <p className="text-white/90 leading-relaxed text-sm sm:text-base font-light px-1 sm:px-0">Ser reconocidos como la firma líder en servicios contables, tributarios, de asesoría, consultoría y entrenamiento.</p>
                 </div>
               </motion.div>
 
@@ -185,7 +185,7 @@ export default function QuienesSomosSection({ id }: QuienesSomosSectionProps) {
                 transition={{ duration: 0.6, delay: 0.1 }}
                 className="group/item flex flex-col sm:flex-row items-start gap-4 p-4 sm:p-6 shadow-lg bg-white/10 hover:bg-white/20 
                                 hover:shadow-xl hover:scale-[1.02] rounded-3xl 
-                                border border-white/30 hover:border-white/50 transition-all duration-500 backdrop-blur-sm"
+                                border border-white/30 hover:border-white/50 transition-all duration-500 backdrop-blur-sm px-2 sm:px-0"
               >
                 <div className="w-8 h-8 flex-shrink-0 bg-gradient-to-r from-white to-white/70 
                                 rounded-xl flex items-center justify-center mt-1 shadow-lg">
@@ -193,7 +193,7 @@ export default function QuienesSomosSection({ id }: QuienesSomosSectionProps) {
                 </div>
                 <div className="w-full">
                   <div className="font-black text-white text-base sm:text-lg mb-1 tracking-tight">Desarrollo del Talento</div>
-                  <p className="text-white/90 leading-relaxed text-sm sm:text-base font-light">Identificar y fortalecer las competencias del personal dentro de la firma en todas las áreas, potenciando los valores del profesionalismo, calidad y servicio.</p>
+                  <p className="text-white/90 leading-relaxed text-sm sm:text-base font-light px-1 sm:px-0">Identificar y fortalecer las competencias del personal dentro de la firma en todas las áreas, potenciando los valores del profesionalismo, calidad y servicio.</p>
                 </div>
               </motion.div>
 
@@ -204,7 +204,7 @@ export default function QuienesSomosSection({ id }: QuienesSomosSectionProps) {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="group/item flex flex-col sm:flex-row items-start gap-4 p-4 sm:p-6 shadow-lg bg-white/10 hover:bg-white/20 
                                 hover:shadow-xl hover:scale-[1.02] rounded-3xl 
-                                border border-white/30 hover:border-white/50 transition-all duration-500 backdrop-blur-sm"
+                                border border-white/30 hover:border-white/50 transition-all duration-500 backdrop-blur-sm px-2 sm:px-0"
               >
                 <div className="w-8 h-8 flex-shrink-0 bg-gradient-to-r from-white to-white/70 
                                 rounded-xl flex items-center justify-center mt-1 shadow-lg">
@@ -212,7 +212,7 @@ export default function QuienesSomosSection({ id }: QuienesSomosSectionProps) {
                 </div>
                 <div className="w-full">
                   <div className="font-black text-white text-base sm:text-lg mb-1 tracking-tight">Innovación y Crecimiento</div>
-                  <p className="text-white/90 leading-relaxed text-sm sm:text-base font-light">Ofrecer servicios de calidad a los clientes y lograr la modernización de los sistemas y redes de la empresa, creciendo en liderazgo, calidad y mercado nacional.</p>
+                  <p className="text-white/90 leading-relaxed text-sm sm:text-base font-light px-1 sm:px-0">Ofrecer servicios de calidad a los clientes y lograr la modernización de los sistemas y redes de la empresa, creciendo en liderazgo, calidad y mercado nacional.</p>
                 </div>
               </motion.div>
             </div>
@@ -227,9 +227,9 @@ export default function QuienesSomosSection({ id }: QuienesSomosSectionProps) {
           whileTap={{ scale: 0.98 }}
           viewport={{ once: true }}
           transition={{ delay: 0.8, duration: 0.6 }}
-          className="flex flex-col lg:flex-row items-center justify-center lg:justify-between gap-6 sm:gap-8 lg:gap-12 mt-12 sm:mt-20 pt-8 sm:pt-12 border-t border-white/20 px-4 w-full"
+          className="flex flex-col lg:flex-row items-center justify-center lg:justify-between gap-6 sm:gap-8 lg:gap-12 mt-12 sm:mt-20 pt-8 sm:pt-12 border-t border-white/20 px-4 sm:px-0 w-full"
         >
-          <div className="flex flex-wrap items-center gap-6 sm:gap-8 lg:gap-12 justify-center lg:justify-start flex-1 w-full lg:w-auto">
+          <div className="flex flex-wrap items-center gap-6 sm:gap-8 lg:gap-12 justify-center lg:justify-start flex-1 w-full lg:w-auto px-2 sm:px-0">
             <div className="text-center min-w-[100px] sm:min-w-[120px]">
               <div className="text-2xl sm:text-3xl lg:text-4xl font-black text-white mb-1 tracking-tight">+500</div>
               <div className="text-base sm:text-lg font-semibold text-white/90">Clientes Satisfechos</div>
@@ -248,7 +248,7 @@ export default function QuienesSomosSection({ id }: QuienesSomosSectionProps) {
             size="lg" 
             className="text-lg sm:text-xl h-14 sm:h-16 px-8 sm:px-12 shadow-2xl bg-white text-[#006760] font-black border-2 
                             border-white hover:bg-white/90 hover:border-white hover:shadow-3xl 
-                            hover:shadow-[#006760]/25 backdrop-blur-sm rounded-3xl group tracking-tight flex-shrink-0 w-full lg:w-auto max-w-md mx-auto lg:mx-0"
+                            hover:shadow-[#006760]/25 backdrop-blur-sm rounded-3xl group tracking-tight flex-shrink-0 w-full lg:w-auto max-w-md mx-auto px-4 sm:px-0"
             onClick={() => {
               const element = document.querySelector('#nuestro-equipo');
               element?.scrollIntoView({ 

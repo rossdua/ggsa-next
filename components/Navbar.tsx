@@ -62,7 +62,7 @@ export default function Navbar() {
           onClick={scrollToTop}
           className="flex items-center gap-2 sm:gap-3 flex-shrink-0"
         >
-          <div className="relative w-16 h-12 sm:w-20 sm:h-16 lg:w-24 lg:h-24">
+          <div className="relative w-16 h-22 sm:w-20 sm:h-16 lg:w-24 lg:h-24">
             <Image
               src="/ggsa2f.png"
               alt="GGSA Logo"

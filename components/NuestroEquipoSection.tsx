@@ -62,7 +62,7 @@ export default function NuestroEquipoSection({ id }: NuestroEquipoSectionProps) 
           </p>
         </motion.div>
 
-        {/* Grid Equipo - RESPONSIVE */}
+        {/* Grid Equipo - RESPONSIVE MEJORADO */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 w-full max-w-5xl mx-auto mb-12 sm:mb-16 lg:mb-20 px-2 sm:px-4">
           {equipo.map((miembro, index) => (
             <motion.div
@@ -74,10 +74,11 @@ export default function NuestroEquipoSection({ id }: NuestroEquipoSectionProps) 
               whileHover={{ scale: 1.03 }}
               className="group relative overflow-hidden rounded-3xl shadow-2xl hover:shadow-3xl 
                          hover:shadow-[#006760]/25 bg-gradient-to-br from-white/20 to-white/10 
-                         border border-white/30 hover:border-white/50 transition-all duration-700 backdrop-blur-sm h-80 sm:h-96 lg:h-[460px] w-full"
+                         border border-white/30 hover:border-white/50 transition-all duration-700 backdrop-blur-sm 
+                         h-[380px] sm:h-[420px] lg:h-[460px] w-full" // ← ALTURA FIJA RESPONSIVA
             >
-              {/* Imagen */}
-              <div className="relative h-[200px] sm:h-[240px] lg:h-[280px] overflow-hidden">
+              {/* Imagen - ALTURA REDUCIDA */}
+              <div className="relative h-[55%] min-h-[200px] overflow-hidden pt-1"> {/* ← 55% + pt-1 */}
                 <Image
                   src={miembro.avatar}
                   alt={miembro.nombre}
@@ -88,28 +89,28 @@ export default function NuestroEquipoSection({ id }: NuestroEquipoSectionProps) 
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
 
-              {/* Contenido */}
-              <div className="p-4 sm:p-6 relative z-10 h-[80px] sm:h-[96px] lg:h-[180px] flex flex-col justify-between">
-                <div className="px-1 sm:px-0">
+              {/* Contenido - ESPACIO GARANTIZADO */}
+              <div className="p-4 sm:p-6 relative z-20 flex-1 flex flex-col justify-between min-h-[45%]"> {/* ← z-20 + min-h */}
+                <div className="flex-1 flex flex-col justify-between px-1 sm:px-0 pb-3 sm:pb-4"> {/* ← pb para botón */}
                   <div className={`w-3 h-3 sm:w-4 sm:h-4 ${miembro.color} rounded-full mb-2 sm:mb-4 group-hover:scale-110 transition-transform duration-300 mx-1 sm:mx-0`} />
                   <h3 className="text-base sm:text-lg lg:text-xl font-black text-white tracking-tight leading-tight group-hover:text-white/90 transition-all mb-1 sm:mb-2 px-1 sm:px-0">
                     {miembro.nombre}
                   </h3>
-                  <p className="text-xs sm:text-sm lg:text-base font-semibold text-white/90 leading-tight mb-2 sm:mb-4 px-1 sm:px-0 line-clamp-2">
+                  <p className="text-xs sm:text-sm lg:text-base font-semibold text-white/90 leading-tight px-1 sm:px-0 line-clamp-2 flex-1">
                     {miembro.cargo}
                   </p>
                 </div>
                 
-                {/* Instagram Button */}
+                {/* Instagram Button - SIEMPRE VISIBLE */}
                 <motion.a
                   href={miembro.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="group/insta inline-flex items-center gap-1 sm:gap-2 bg-white/20 hover:bg-white/30 backdrop-blur-sm 
+                  className="group/insta inline-flex items-center gap-1 sm:gap-2 mt-2 bg-white/20 hover:bg-white/30 backdrop-blur-sm 
                                    border border-white/40 hover:border-white/60 rounded-xl sm:rounded-2xl px-3 sm:px-4 py-2 transition-all duration-300
-                                   text-white/90 hover:text-white hover:shadow-lg hover:shadow-white/20 w-full sm:w-auto mx-1 sm:mx-0"
+                                   text-white/90 hover:text-white hover:shadow-lg hover:shadow-white/20 w-full sm:w-auto mx-1 sm:mx-0 z-30"
                 >
                   <Instagram className="w-4 h-4 sm:w-5 sm:h-5 group-hover/insta:scale-110 transition-transform flex-shrink-0" />
                   <span className="font-semibold text-xs sm:text-sm tracking-tight">Sígueme</span>
