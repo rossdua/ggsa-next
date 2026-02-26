@@ -26,7 +26,7 @@ export default function QuienesSomosSection({ id }: QuienesSomosSectionProps) {
           </h2>
         </motion.div>
 
-        {/* DESCRIPCIÓN PRINCIPAL - RESPONSIVE */}
+        {/* DESCRIPCIÓN PRINCIPAL + Misión/Visión - RESPONSIVE */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -34,7 +34,7 @@ export default function QuienesSomosSection({ id }: QuienesSomosSectionProps) {
           transition={{ duration: 0.8 }}
           className="w-full mb-12 sm:mb-16 lg:mb-20 px-4"
         >
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 w-full">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 w-full">
             
             {/* TARJETA PRINCIPAL */}
             <motion.div
@@ -42,7 +42,7 @@ export default function QuienesSomosSection({ id }: QuienesSomosSectionProps) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="md:col-span-2 lg:col-span-3 group hover:scale-[1.02] transition-all duration-500 relative overflow-hidden w-full"
+              className="md:col-span-2 group hover:scale-[1.02] transition-all duration-500 relative overflow-hidden w-full"
             >
               <div className="relative bg-gradient-to-br from-white/5 via-white/2 to-transparent 
                              backdrop-blur-2xl rounded-3xl p-8 sm:p-12 lg:p-16 border border-white/20 
@@ -72,7 +72,7 @@ export default function QuienesSomosSection({ id }: QuienesSomosSectionProps) {
                   </div>
                 </div>
 
-                {/* TEXTO JUSTIFICADO */}
+                {/* TEXTO PRINCIPAL */}
                 <div className="space-y-6 sm:space-y-8 text-justify px-2 sm:px-0">
                   <div className="group/p group-hover/p:-translate-x-1 transition-transform duration-500">
                     <p className="text-lg sm:text-xl lg:text-2xl text-white/95 leading-[1.7] font-light tracking-wide hyphens-auto">
@@ -92,17 +92,11 @@ export default function QuienesSomosSection({ id }: QuienesSomosSectionProps) {
                       Nuestra propuesta de valor consiste en el compromiso de agregar valor y apuntalar el éxito de cada uno de nuestros clientes mediante la construcción de una relación de confianza mutuamente beneficiosa. Nos especializamos en la búsqueda y desarrollo de soluciones a la medida, implementadas de forma eficiente y rápida para obtener resultados óptimos.
                     </p>
                   </div>
-
-                  <div className="group/p pt-6 sm:pt-8 pb-6 sm:pb-8 border-t border-white/10 group-hover/p:-translate-x-1 transition-transform duration-500">
-                    <p className="text-base sm:text-lg lg:text-xl text-white/88 leading-[1.8] font-light italic tracking-wide hyphens-auto">
-                      Nuestra intervención abarca áreas críticas como el mejoramiento operativo financiero, el desarrollo de nuevos negocios e innovación, la adecuación de procesos y la gestión integral del talento humano, siempre bajo un modelo de trabajo que garantiza el acompañamiento constante y la medición de resultados.
-                    </p>
-                  </div>
                 </div>
               </div>
             </motion.div>
 
-            {/* 3 tarjetas pequeñas */}
+            {/* Misión - COMPLETA */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -118,11 +112,13 @@ export default function QuienesSomosSection({ id }: QuienesSomosSectionProps) {
                   Misión
                 </h3>
                 <p className="text-base sm:text-lg text-white/95 leading-relaxed font-light">
-                  Proveer servicios contables, tributarios y de entrenamiento con altos estándares...
+                  Proveer servicios en materia contable, tributaria y de entrenamiento con altos estándares de calidad, 
+                  con los cuales podamos contribuir a mejoras tangibles en nuestros clientes y relacionados, así como con nuestra comunidad profesional.
                 </p>
               </div>
             </motion.div>
 
+            {/* Visión - COMPLETA */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -138,28 +134,7 @@ export default function QuienesSomosSection({ id }: QuienesSomosSectionProps) {
                   Visión
                 </h3>
                 <p className="text-base sm:text-lg text-white/95 leading-relaxed font-light">
-                  Firma referente en soluciones confiables contables...
-                </p>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="group hover:scale-[1.02] transition-all duration-500 w-full"
-            >
-              <div className="bg-white/20 backdrop-blur-xl hover:bg-white/30 rounded-3xl p-6 sm:p-8 h-full 
-                             border-2 border-white/30 hover:border-white/50 hover:shadow-3xl hover:shadow-[#006760]/40 
-                             transition-all duration-700">
-                <h3 className="text-xl sm:text-2xl font-black text-white mb-4 sm:mb-6 flex items-center justify-center sm:justify-start gap-3 tracking-tight">
-                  <div className="w-3 h-3 sm:w-4 sm:h-4 bg-white rounded-full group-hover:scale-125 transition-all flex-shrink-0"></div>
-                  +13 Años
-                </h3>
-                <p className="text-base sm:text-lg text-white/95 leading-relaxed font-light text-center">
-                  <span className="text-2xl sm:text-3xl font-black block">Apoyo Empresarial</span>
-                  ininterrumpido
+                  Ser reconocidos como una Firma que provee soluciones confiables, en servicios contables, tributarios y de entrenamiento.
                 </p>
               </div>
             </motion.div>
