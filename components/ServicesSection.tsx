@@ -5,10 +5,11 @@ import { FileCheck, FileText, ShieldCheck, Gavel, ChevronLeft, ChevronRight } fr
 import { Button } from "@/components/ui/button";
 import { useState } from 'react';
 
+
 const servicios = [
   {
     icon: FileCheck,
-    titulo: "Auditoría (Venezuela)",
+    titulo: "Auditoría\n(Venezuela)",
     items: [
       "Auditoría independiente de estados financieros para Grandes Empresas, Pequeña y Mediana Entidad y Fundaciones sin Fines de Lucro",
       "Auditoría independiente para propósitos estatutarios y reglamentarios",
@@ -17,7 +18,7 @@ const servicios = [
   },
   {
     icon: FileText,
-    titulo: "Impuestos (Venezuela & Perú)",
+    titulo: "Impuestos\n(Venezuela & Perú)",
     items: [
       "Asistencia en la preparación y revisión de la declaración de rentas",
       "Revisión de deberes formales en impuesto sobre la renta e impuesto a las ventas",
@@ -29,7 +30,7 @@ const servicios = [
   },
   {
     icon: ShieldCheck,
-    titulo: "Asesoría/Consultoría (Venezuela & Perú)",
+    titulo: "Asesoría/Consultoría\n(Venezuela & Perú)",
     items: [
       "Outsourcing contable",
       "Análisis de posiciones contables y consultas técnicas",
@@ -40,7 +41,7 @@ const servicios = [
   },
   {
     icon: Gavel,
-    titulo: "Legal (Venezuela)",
+    titulo: "Legal\n(Venezuela)",
     items: [
       "Mercantil-Comercial",
       "Tributario",
@@ -49,21 +50,26 @@ const servicios = [
   }
 ];
 
+
 interface ServicesSectionProps {
   id?: string;
 }
 
+
 export default function ServicesSection({ id }: ServicesSectionProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
 
+
   const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % servicios.length);
   const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + servicios.length) % servicios.length);
+
 
   const renderIcon = (index: number) => {
     const icons = [FileCheck, FileText, ShieldCheck, Gavel];
     const IconComponent = icons[index];
     return <IconComponent className="h-10 w-10 text-white drop-shadow-lg" />;
   };
+
 
   return (
     <section id={id} className="w-full py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-white/95 backdrop-blur-sm">
@@ -77,15 +83,16 @@ export default function ServicesSection({ id }: ServicesSectionProps) {
           transition={{ duration: 0.8 }}
           className="text-center mb-12 sm:mb-16 lg:mb-20 max-w-3xl mx-auto"
         >
-          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black bg-gradient-to-r 
-                         from-[#044559] via-gray-900 to-[#044559] bg-clip-text text-transparent 
-                         leading-tight tracking-tight drop-shadow-xl px-2">
-            Nuestros Servicios
-          </h2>
-          <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-900 leading-relaxed font-light px-4 sm:px-0 max-w-2xl mx-auto">
-            Soluciones integrales para el crecimiento de tu empresa
-          </p>
+        <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black bg-gradient-to-r 
+                       from-[#044559] via-gray-900 to-[#044559] bg-clip-text text-transparent 
+                       leading-tight tracking-tight drop-shadow-xl px-2">
+          Nuestros Servicios
+        </h2>
+        <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-900 leading-tight font-light px-4 sm:px-0 max-w-2xl mx-auto whitespace-nowrap">
+          Soluciones integrales para el crecimiento de tu empresa
+        </p>
         </motion.div>
+
 
         {/* MÓVIL: CAROUSEL - RESPONSIVE */}
         <div className="lg:hidden w-full max-w-2xl mx-auto mb-12 sm:mb-16 px-2 sm:px-4">
@@ -103,6 +110,7 @@ export default function ServicesSection({ id }: ServicesSectionProps) {
               ))}
             </div>
 
+
             {/* Card del carousel */}
             <motion.div
               key={currentSlide}
@@ -116,8 +124,8 @@ export default function ServicesSection({ id }: ServicesSectionProps) {
                 {renderIcon(currentSlide)}
               </div>
               
-              <h3 className="text-xl sm:text-2xl font-black text-center text-gray-900 mb-6 sm:mb-8 bg-gradient-to-r from-[#044559] to-[#044559]/70 bg-clip-text px-2">
-                {servicios[currentSlide].titulo}
+              <h3 className="text-xl sm:text-2xl font-black text-center text-gray-900 mb-6 sm:mb-8 bg-gradient-to-r from-[#044559] to-[#044559]/70 bg-clip-text px-2 leading-tight">
+                <span>{servicios[currentSlide].titulo}</span>
               </h3>
               
               <div className="space-y-3">
@@ -135,6 +143,7 @@ export default function ServicesSection({ id }: ServicesSectionProps) {
                   </motion.div>
                 ))}
               </div>
+
 
               {/* Botones navegación */}
               <div className="absolute -top-16 right-0 flex gap-1 sm:gap-2">
@@ -159,16 +168,21 @@ export default function ServicesSection({ id }: ServicesSectionProps) {
           </div>
         </div>
 
-        {/* DESKTOP: Grid Tabs + Contenido - RESPONSIVE */}
+
+        {/* DESKTOP: Grid Tabs + Contenido - FIX COMPLETO */}
         <div className="hidden lg:grid lg:grid-cols-5 lg:gap-8 max-w-7xl mx-auto mb-12 px-4">
-          {/* Tabs */}
+          {/* Tabs - CAMBIO AQUÍ SOLO */}
           <div className="lg:col-span-1">
             <div className="space-y-4 sticky top-24">
-              {servicios.map((servicio, index) => (
+              {servicios.map((servicio, index) => {
+                const isActive = currentSlide === index;
+                return (
                 <motion.button
                   key={servicio.titulo}
-                  className={`group w-full p-4 sm:p-6 shadow-xl border border-white/50 rounded-3xl transition-all duration-700 h-28 sm:h-32 flex flex-col items-center justify-center text-left backdrop-blur-sm
-                            ${currentSlide === index 
+                  className={`group w-full p-3 sm:p-4 lg:p-5 xl:p-6 shadow-xl border border-white/50 rounded-3xl transition-all duration-700 
+                            flex flex-col items-center justify-center text-center backdrop-blur-sm select-none
+                            h-36 lg:h-40 xl:h-44 2xl:h-48
+                            ${isActive 
                               ? 'bg-gradient-to-r from-[#044559] to-[#044559]/90 text-white shadow-2xl scale-[1.02] border-2 border-[#044559]/50 hover:shadow-3xl hover:shadow-[#044559]/25 hover:scale-[1.05]' 
                               : 'bg-white/80 text-gray-900 hover:bg-white hover:shadow-2xl hover:scale-[1.02] hover:border-[#044559]/30'
                             }`}
@@ -176,14 +190,18 @@ export default function ServicesSection({ id }: ServicesSectionProps) {
                   whileHover={{ y: -4 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  <servicio.icon className={`w-8 h-8 sm:w-10 sm:h-10 mb-2 drop-shadow-lg transition-all ${currentSlide === index ? 'drop-shadow-2xl text-white' : 'text-[#044559] group-hover:scale-110'}`} />
-                  <span className={`font-black text-sm sm:text-base transition-all tracking-tight line-clamp-2 px-1 ${currentSlide === index ? 'drop-shadow-lg' : 'group-hover:text-[#044559]'}`}>
+                  <servicio.icon className={`w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 mb-3 lg:mb-4 drop-shadow-lg transition-all flex-shrink-0 
+                                          ${isActive ? 'drop-shadow-2xl text-white' : 'text-[#044559] group-hover:scale-110'}`} />
+                  <span className={`font-black text-xs sm:text-sm lg:text-sm xl:text-base 2xl:text-lg tracking-tight 
+                                  leading-tight lg:leading-relaxed px-1 max-w-full overflow-wrap-anywhere select-none
+                                  ${isActive ? 'drop-shadow-lg text-white' : 'text-gray-900 group-hover:text-[#044559]'}`}>
                     {servicio.titulo}
                   </span>
                 </motion.button>
-              ))}
+              )})}
             </div>
           </div>
+
 
           {/* Contenido activo */}
           <motion.div 
@@ -205,7 +223,7 @@ export default function ServicesSection({ id }: ServicesSectionProps) {
               </div>
               
               <h3 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-black text-center text-gray-900 mb-8 sm:mb-12 bg-gradient-to-r from-[#044559] to-[#044559]/70 bg-clip-text leading-tight tracking-tight px-2">
-                {servicios[currentSlide].titulo}
+                <span>{servicios[currentSlide].titulo}</span>
               </h3>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
@@ -217,7 +235,7 @@ export default function ServicesSection({ id }: ServicesSectionProps) {
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: i * 0.1 }}
                     className="group flex items-start gap-3 sm:gap-4 p-4 sm:p-6 shadow-lg bg-white/80 hover:bg-white hover:shadow-xl hover:scale-[1.02] backdrop-blur-sm rounded-3xl 
-                                      border border-white/50 hover:border-[#044559]/30 transition-all duration-500"
+                              border border-white/50 hover:border-[#044559]/30 transition-all duration-500"
                   >
                     <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 mt-4 bg-gradient-to-r from-[#044559] to-[#044559]/70 rounded-full flex-shrink-0 
                                     group-hover:scale-125 group-hover:rotate-180 transition-all duration-500" />
@@ -228,6 +246,7 @@ export default function ServicesSection({ id }: ServicesSectionProps) {
             </motion.div>
           </motion.div>
         </div>
+
 
         {/* CTA - RESPONSIVE */}
         <motion.div
@@ -242,9 +261,9 @@ export default function ServicesSection({ id }: ServicesSectionProps) {
           <Button 
             size="lg" 
             className="text-lg sm:text-xl h-14 sm:h-16 px-8 sm:px-12 shadow-2xl bg-gradient-to-r from-[#044559] to-[#044559]/90 
-                              hover:from-[#044559]/90 hover:to-[#044559] text-white font-black border-2 
-                              border-[#044559]/30 hover:border-[#044559]/50 hover:shadow-3xl 
-                              hover:shadow-[#044559]/25 backdrop-blur-sm rounded-3xl group tracking-tight w-full sm:w-auto max-w-md mx-auto"
+                      hover:from-[#044559]/90 hover:to-[#044559] text-white font-black border-2 
+                      border-[#044559]/30 hover:border-[#044559]/50 hover:shadow-3xl 
+                      hover:shadow-[#044559]/25 backdrop-blur-sm rounded-3xl group tracking-tight w-full sm:w-auto max-w-md mx-auto"
             onClick={() => {
               const element = document.querySelector('#contacto');
               element?.scrollIntoView({ 
